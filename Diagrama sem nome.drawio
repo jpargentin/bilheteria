@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" version="27.1.5">
+  <diagram name="Página-1" id="yK-fyhg9txjnkvZaFi05">
+    <mxGraphModel dx="2037" dy="2230" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-1" value="AWS Cloud" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="-860" width="1830" height="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-11" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="60.5" y="90" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-6" value="Core&lt;div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="970" y="30" width="800" height="920" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-4" value="Canais digitais&lt;div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="31" y="30" width="179" height="920" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-5" value="Camada Experiencia&lt;div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="260" y="30" width="660" height="920" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-13" value="Internet" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="60.5" y="415" width="120" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-7" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.computer;pointerEvents=1;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="95.5" y="477.5" width="50" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-14" value="Apps" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="60.5" y="740" width="120" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-8" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.tablet;pointerEvents=1;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="95.5" y="830" width="50" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-9" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.smartphone;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="111.5" y="780" width="18" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-12" value="Toten em ponto fisico de venda" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="60.5" y="110" width="120" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-10" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.tablet;pointerEvents=1;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="95.5" y="150" width="50" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-15" value="Módulo Jornada" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="280" y="540" width="610" height="365" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-16" value="Módulo Jornada" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="280" y="120" width="610" height="365" as="geometry" />
+        </mxCell>
+        <mxCell id="PF3PdxFtY2Zi-VgMt9Vq-17" value="Fila Virtual" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="337" y="700" width="293" height="167.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
