@@ -244,14 +244,6 @@
         <mxCell id="hyAj3HFVHN-rnx3VRChl-141" value="Tópico Notificação Reserva" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.managed_streaming_for_kafka;container=0;" vertex="1" parent="1">
           <mxGeometry x="1202" y="1010" width="78" height="78" as="geometry" />
         </mxCell>
-        <mxCell id="hyAj3HFVHN-rnx3VRChl-144" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hyAj3HFVHN-rnx3VRChl-142" target="hyAj3HFVHN-rnx3VRChl-114">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1500" y="1049" />
-              <mxPoint x="1500" y="1140" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
         <mxCell id="hyAj3HFVHN-rnx3VRChl-149" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hyAj3HFVHN-rnx3VRChl-142" target="hyAj3HFVHN-rnx3VRChl-148">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
@@ -262,15 +254,6 @@
         </mxCell>
         <mxCell id="hyAj3HFVHN-rnx3VRChl-142" value="Serviço Carrinho" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks;container=0;" vertex="1" parent="1">
           <mxGeometry x="1358" y="1010" width="78" height="78" as="geometry" />
-        </mxCell>
-        <mxCell id="hyAj3HFVHN-rnx3VRChl-147" value="" style="group" vertex="1" connectable="0" parent="1">
-          <mxGeometry x="1540" y="1091" width="168" height="78" as="geometry" />
-        </mxCell>
-        <mxCell id="hyAj3HFVHN-rnx3VRChl-114" value="Banco de dados de Carrinho&amp;nbsp;&lt;div&gt;&amp;nbsp;RDS&amp;nbsp; PostgreSQL com Proxy&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.rds;container=0;" vertex="1" parent="hyAj3HFVHN-rnx3VRChl-147">
-          <mxGeometry width="78" height="78" as="geometry" />
-        </mxCell>
-        <mxCell id="hyAj3HFVHN-rnx3VRChl-115" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#C925D1;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.rds_proxy;container=0;" vertex="1" parent="hyAj3HFVHN-rnx3VRChl-147">
-          <mxGeometry x="90" width="78" height="78" as="geometry" />
         </mxCell>
         <mxCell id="hyAj3HFVHN-rnx3VRChl-148" value="Tópico Atualização Carrinho" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.managed_streaming_for_kafka;container=0;" vertex="1" parent="1">
           <mxGeometry x="1576" y="976" width="78" height="78" as="geometry" />
@@ -283,6 +266,13 @@
         </mxCell>
         <mxCell id="hyAj3HFVHN-rnx3VRChl-164" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hyAj3HFVHN-rnx3VRChl-156" target="hyAj3HFVHN-rnx3VRChl-161">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hyAj3HFVHN-rnx3VRChl-205" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hyAj3HFVHN-rnx3VRChl-156" target="hyAj3HFVHN-rnx3VRChl-202">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1520" y="1160" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="hyAj3HFVHN-rnx3VRChl-156" value="Serviço Solicita&amp;nbsp;&lt;div&gt;Pagamento&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks;container=0;" vertex="1" parent="1">
           <mxGeometry x="1481" y="1290" width="78" height="78" as="geometry" />
@@ -397,6 +387,20 @@
         </mxCell>
         <mxCell id="hyAj3HFVHN-rnx3VRChl-198" value="Serviço de atualização&amp;nbsp;&lt;div&gt;final&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(35, 47, 62), rgb(189, 199, 212));&quot;&gt;de bilhete&lt;/span&gt;&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks;container=0;" vertex="1" parent="1">
           <mxGeometry x="440" y="942" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="hyAj3HFVHN-rnx3VRChl-202" value="&lt;div&gt;Banco de dados Carrinho&lt;/div&gt;DynamoDB com DAX&amp;nbsp;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.dynamodb;" vertex="1" parent="1">
+          <mxGeometry x="1576" y="1100" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="hyAj3HFVHN-rnx3VRChl-203" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#C925D1;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.dynamodb_dax;" vertex="1" parent="1">
+          <mxGeometry x="1654" y="1103" width="78" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="hyAj3HFVHN-rnx3VRChl-204" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="hyAj3HFVHN-rnx3VRChl-142" target="hyAj3HFVHN-rnx3VRChl-202">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1500" y="1049" />
+              <mxPoint x="1500" y="1139" />
+            </Array>
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
