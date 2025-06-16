@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" version="27.1.5">
   <diagram name="Página-1" id="yK-fyhg9txjnkvZaFi05">
-    <mxGraphModel dx="2037" dy="2230" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2000" dy="1917" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -66,6 +66,9 @@
         </mxCell>
         <mxCell id="hyAj3HFVHN-rnx3VRChl-29" value="Autenticação&lt;div&gt;de reserva&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
           <mxGeometry x="400" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hyAj3HFVHN-rnx3VRChl-418" value="Escolha de sessão" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="PF3PdxFtY2Zi-VgMt9Vq-1">
+          <mxGeometry x="620" y="610" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="hyAj3HFVHN-rnx3VRChl-64" value="" style="group" vertex="1" connectable="0" parent="1">
           <mxGeometry x="1150" y="270" width="510" height="180" as="geometry" />
