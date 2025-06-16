@@ -11,3 +11,4 @@ class TicketModel(BaseModel):
     ID_USER: str | None 
     ID_WEB_SESSION: str | None 
     tags: list[str]
+    PRICE: float

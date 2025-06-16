@@ -24,7 +24,7 @@ class ReservationController:
                 ticket.ID_USER = id_user
                 ticket.ID_WEB_SESSION = id_web_session
                 self.repository.write_ticket(tickets)
-                return id_ticket
+                return ticket
 
     def buy_ticket(self, id_ticket: str):
         tickets = self.repository.get_tickets()
