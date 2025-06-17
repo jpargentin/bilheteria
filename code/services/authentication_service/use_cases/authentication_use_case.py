@@ -1,7 +1,7 @@
 from services.authentication_service.controller.authentication_controller import AuthenticationController
 
 
-class AuthenticationService:
+class AuthenticationUseCase:
 
     def __init__(self):
         self.auth_controller = AuthenticationController()
@@ -15,9 +15,9 @@ class AuthenticationService:
             if choice == '1':
                 email = input("Digite seu email: ")
                 password = input("Digite sua senha: ")
-                user_id = self.auth_controller.login(email, password)
-                if user_id:
-                    print(f"Login bem-sucedido! ID do usuario: {user_id}")
+                user = self.auth_controller.login(email, password)
+                if user:
+                    print(f"Login bem-sucedido! ID do usuario: {user.ID_USER}")
                     loop = False
                 else:
                     print("Email ou senha incorretos.")
@@ -26,13 +26,13 @@ class AuthenticationService:
                 name = input("Digite seu nome: ")
                 email = input("Digite seu email: ")
                 password = input("Digite sua senha: ")
-                user_id = self.auth_controller.register(name, email, password)
-                print(f"Usuario registrado com sucesso! ID do usuario: {user_id}")
+                user = self.auth_controller.register(name, email, password)
+                print(f"Usuario registrado com sucesso! ID do usuario: {user.ID_USER}")
                 loop = False
             
             else:
                 print("Opcao invalida. Tente novamente.")
-        return user_id
+        return user
     
     def _show_menu(self):
         print("\nMenu de Autenticacao:")

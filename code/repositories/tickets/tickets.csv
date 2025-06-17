@@ -1,7 +1,7 @@
-ID_TICKET,TICKET_COORDENATES,ID_SESSION,RESERVATION,BUY,ID_USER,ID_WEB_SESSION,tags
-T1,"['A', '1', '1']",1,False,False,,,"['PCD', 'COMBO_1']"
-T2,"['A', '2', '1']",1,False,False,,,"['PCD', 'COMBO_1']"
-T3,"['A', '3', '1']",1,False,False,,,"['PCD', 'COMBO_1']"
-T4,"['B', '1', '1']",1,False,False,,,"['STANDART', 'COMBO_1']"
-T5,"['B', '2', '1']",1,False,False,,,"['NAMORADEIRA', 'COMBO_1']"
-T6,"['B', '3', '1']",1,False,False,,,"['STANDART', 'COMBO_1']"
+ID_TICKET,TICKET_COORDENATES,ID_SESSION,RESERVATION,BUY,ID_USER,ID_WEB_SESSION,tags,PRICE
+T1,"['A', '1', '1']",1,False,False,,,"['PCD', 'COMBO_1']",20.0
+T2,"['A', '2', '1']",1,False,False,,,"['PCD', 'COMBO_1']",20.0
+T3,"['A', '3', '1']",1,False,False,,,"['PCD', 'COMBO_1']",20.0
+T4,"['B', '1', '1']",1,False,False,,,"['STANDART', 'COMBO_1']",20.0
+T5,"['B', '2', '1']",1,False,False,,,"['NAMORADEIRA', 'COMBO_1']",30.0
+T6,"['B', '3', '1']",1,False,False,,,"['STANDART', 'COMBO_1']",20.0

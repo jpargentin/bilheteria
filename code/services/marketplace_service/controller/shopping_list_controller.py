@@ -34,13 +34,15 @@ class ShoppingListController:
         return [item for item in items if (item.ID_USER==self.user_id and item.ID_WEB_SESSION==self.web_session_id)]
 
     def show_items(self):
-        items = self.shopping_list_repository.get_shopping_list()
+        items = self.get_shopping_list()
         for item in items:
-            print(f"ID: {item.ID_PRODUCT}, Name: {item.NAME}, Price: {item.PRICE}, Quantity: {item.QUANTITY}, Total: {item.PRICE * item.QUANTITY}")
-        print("TOTAL EM CARRINHO: ", self.summarize())
+            print(f"\nID: {item.ID_PRODUCT}, Nome: {item.NAME}, Preço: R${item.PRICE:.2f}, Quantidade: {item.QUANTITY}, Total: R${item.PRICE * item.QUANTITY:.2f}")
+        self.summarize()
     
     def summarize(self):
         items = self.get_shopping_list()
         total = sum(item.PRICE * item.QUANTITY for item in items)
-        print(f"Total: {total}")
+        print(f"----- TOTAL EM CARRINHO: R${total:.2f} -----")
         return total
+    
+    

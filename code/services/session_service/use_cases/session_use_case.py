@@ -1,8 +1,7 @@
 from services.session_service.controller.session_controller import SessionController
-from services.session_service.model.session_model import SessionModel
-from typing import List
 
-class SessionService():
+
+class SessionUseCase():
 
     def __init__(self):
         self.controller = SessionController()
@@ -16,22 +15,20 @@ class SessionService():
                 selected_session = self.choose_session()
                 if selected_session:
                     print(f"Sessão selecionada: {selected_session.ID_SESSION}")
-                    loop = False
+                    return selected_session
 
             elif choice == '2':
                 print("Saindo do serviço de sessões. Voltando ao menu principal...")
-                #TODO: Implementar retorno ao menu principal
-                loop = False
+                return None
             else:
                 print("Opção inválida. Tente novamente.")
     
-    def choose_session(self, session_list: List[SessionModel]):
+    def choose_session(self):
         session_list = self.show_available_sessions()
-        print("Escolha uma sessao")
         loop = True
         while loop:
             input_id = input("\nDigite o ID da sessao que deseja escolher: ")
-            selected_session = next((s for s in session_list if s.ID_SESSION == input_id), None)
+            selected_session = next((s for s in session_list if s.ID_SESSION == input_id.capitalize()), None)
             if selected_session:
                 print("Sessao escolhida com sucesso!")
                 loop = False
@@ -40,7 +37,7 @@ class SessionService():
         return selected_session
     
     def show_available_sessions(self):        
-        print("Listando sessoes disponíveis...")
+        print("\nListando sessoes disponíveis...")
         session_list = self.controller.list_available_sessions()
         if not session_list:
             print("Nenhuma sessao disponível no momento.")

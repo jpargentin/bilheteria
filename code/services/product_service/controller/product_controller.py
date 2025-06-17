@@ -14,5 +14,6 @@ class ProductController:
 
     def show_products(self):
         products = self.product_repository.get_products()
+        print("\nLista de Produtos Disponíveis:")
         for product in products:
-            print(f"ID: {product.ID_PRODUCT}, Name: {product.NAME}, Price: {product.PRICE}")
+            print(f"\nID: {product.ID_PRODUCT}, Nome: {product.NAME}, Preço: R${product.PRICE:.2f}")

@@ -1,41 +1,67 @@
-from utils.csv_service import CSVService
-
-# service = CSVService()
-# dados = [['1', 'JOAO.PEDRO@GMAIL.COM'], ['2', 'MARIA@GMAIL.COM']]
-# CSVService().write_csv('repositories/virtual_queue', 'virtual_queue.csv', dados, header=['ID_WEB_SESSION', 'ID_USER'])
-# conteudo = CSVService().read_csv('repositories/virtual_queue', 'virtual_queue.csv')
-# CSVService().write_csv('repositories/virtual_queue', 'virtual_queue.csv', conteudo, header=['ID_WEB_SESSION', 'ID_USER'])
-# conteudo = CSVService().read_csv('repositories/virtual_queue', 'virtual_queue.csv')
-# print(conteudo)
-
-
-
-# ['ID_TICKET', 'TICKET_COORDENATES', "ID_SESSION", "RESERVATION", "BUY", "ID_USER", "ID_WEB_SESSION", 'tags', 'PRICE]
-dados = [['T1', ["A", "1", "1"], 1,  False, False, None, None, ['PCD', 'COMBO_1'], 20.0],
-         ['T2', ["A", "2", "1"], 1,  False, False, None, None, ['PCD', 'COMBO_1'], 20.0],
-         ['T3', ["A", "3", "1"], 1,  False, False, None, None, ['PCD', 'COMBO_1'], 20.0],
-         ['T4', ["B", "1", "1"], 1,  False, False, None, None, ['STANDART', 'COMBO_1'], 20.0],
-         ['T5', ["B", "2", "1"], 1,  False, False, None, None, ['NAMORADEIRA', 'COMBO_1'], 30.0],
-         ['T6', ["B", "3", "1"], 1,  False, False, None, None, ['STANDART', 'COMBO_1'], 20.0]]
-
-CSVService().write_csv('repositories/tickets', 'tickets.csv', dados, header=['ID_TICKET', 'TICKET_COORDENATES', "ID_SESSION", "RESERVATION", "BUY", "ID_USER", "ID_WEB_SESSION", 'tags', 'PRICE'])
-conteudo = CSVService().read_csv('repositories/tickets', 'tickets.csv')
-print(conteudo)
+import uuid
+import time
+from services.authentication_service.use_cases.authentication_use_case import AuthenticationUseCase
+from services.session_service.use_cases.session_use_case import SessionUseCase
+from services.virtual_queue_service.use_cases.virtual_queue_use_case import VirtualQueueUseCase
+from services.reservation_service.use_cases.reservation_use_case import ReservationUseCase
+from services.marketplace_service.use_cases.marketplace_use_case import MarketPlaceUseCase
+from services.payment_service.use_cases.payment_use_case import PaymentUseCase
+from services.receipt_service.use_cases.receipt_use_case import ReceiptUseCase
+from utils.setup import DataBaseSetup
 
 
-dados = [['1',"TIETE_PLAZA", "STITCH", "2025-06-18T22:00:00"]]
+def __main__():
+    DataBaseSetup()
+    while True:
+        print("\n=========================================")
+        print("           BILHETERIA ONLINE")
+        print("=========================================")
+        print("\nBem-vindo ao sistema de bilheteira!")
+        id_web_session = str(uuid.uuid4())
+        user = AuthenticationUseCase().authentication_endpoint()
 
-CSVService().write_csv('repositories/sessions', 'sessions.csv', dados, header=['ID_SESSION', "LOCAL", "MOVIE", "DATE"])
-conteudo = CSVService().read_csv('repositories/sessions', 'sessions.csv')
-print(conteudo)
+        selected_session = SessionUseCase().session_endpoint()
 
-# ['ID_PRODUCT', "NAME", "QUANTITY", "PRICE", "tags"]
-dados = [['P1',"PIPOCA", 1000, 10.0, ['SNACK', 'FOOD']],
-         ['P2',"REFRIGERANTE", 1000, 5.0, ['SNACK', 'DRINK']],
-         ['P3',"CACHORRO_QUENTE", 1000, 15.0, ['SNACK', 'FOOD']],
-         ['P4',"COMBO_1", 1000, 20.0, ['SNACK', 'COMBO_1']],
-         ['P5',"COMBO_2", 1000, 30.0, ['SNACK', 'COMBO_2']]]
+        if not selected_session:
+            continue
 
-CSVService().write_csv('repositories/products', 'products.csv', dados, header=['ID_PRODUCT', "NAME", "QUANTITY", "PRICE", "tags"])
-conteudo = CSVService().read_csv('repositories/products', 'products.csv')
-print(conteudo)
+        print("\nVocê sera redirecionado para a fila virtual")
+        time.sleep(1)
+        VirtualQueueUseCase().virtual_queue_endpoint(user, id_web_session)
+
+        reserved_tickets_list = ReservationUseCase().reservation_endpoint(selected_session, user.ID_USER, id_web_session)
+
+        if not reserved_tickets_list:
+            continue
+
+        print("\nVocê sera redirecionado para o marketplace")
+        time.sleep(1)
+        shopping_list = MarketPlaceUseCase(user, id_web_session).marketplace_endpoint(reserved_tickets_list)
+
+        if not shopping_list:
+            for ticket in reserved_tickets_list:
+                ReservationUseCase().cancel_reservation_endpoint(ticket.ID_TICKET)
+            continue
+
+        print("\nVocê sera redirecionado para o pagamento")
+        time.sleep(1)
+        payment = PaymentUseCase().payment_endpoint()
+
+        if not payment:
+            for ticket in reserved_tickets_list:
+                ReservationUseCase().cancel_reservation_endpoint(ticket.ID_TICKET)
+            continue
+
+        time.sleep(1)
+        ReceiptUseCase().receipt_endpoint()
+        
+        for ticket in reserved_tickets_list:
+            ReservationUseCase().buy_ticket_endpoint(ticket.ID_TICKET)
+            
+        print("\nCompra realizada com sucesso!")
+        print("\nResumo da compra:")
+        for ticket in reserved_tickets_list:
+            print(f" - Ingresso ID: {ticket.ID_TICKET}, Sessão ID: {ticket.ID_SESSION}, Preço: {ticket.PRICE}")
+        print("\nObrigado por comprar conosco!")
+    
+__main__()

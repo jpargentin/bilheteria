@@ -3,6 +3,8 @@ from services.session_service.model.session_model import SessionModel
 
 
 class SessionRepository:
+    header = ["ID_SESSION","LOCAL","MOVIE","DATE"]
+    
     def get_sessions(self):
         sessions = CSVService().read_csv('repositories/sessions', 'sessions.csv')
-        return [SessionModel(**session) for session in sessions]
+        return [SessionModel(**dict(zip(self.header,session))) for session in sessions]

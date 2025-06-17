@@ -14,7 +14,9 @@ class ReservationController:
         available_seats = self._list_available_seats(ID_SESSION)
         print("\nAssentos disponiveis: ")
         for seat in available_seats:
-            print(f"\nID: {seat.ID_TICKET}, Fileira: {seat.TICKET_COORDENATES.ROW}, Coluna: {seat.TICKET_COORDENATES.COLUMN}, Sala: {seat.TICKET_COORDENATES.ROOM}, Descricao: {seat.tags[0]}")
+            cordinates = seat.TICKET_COORDENATES.replace('[','').replace(']','').split(',')
+            tags = seat.tags.replace('[','').replace(']','').split(',')
+            print(f"\nID: {seat.ID_TICKET}, Fileira: {cordinates[0]}, Coluna: {cordinates[1]}, Sala: {cordinates[2]}, Descricao: {tags[0]}, Preço: {seat.PRICE}")
 
     def reserve_seat(self, id_ticket: str, id_user: str, id_web_session: str):
         tickets = self.repository.get_tickets()
@@ -25,7 +27,8 @@ class ReservationController:
                 ticket.ID_WEB_SESSION = id_web_session
                 self.repository.write_ticket(tickets)
                 return ticket
-
+        return None
+    
     def buy_ticket(self, id_ticket: str):
         tickets = self.repository.get_tickets()
         for ticket in tickets:

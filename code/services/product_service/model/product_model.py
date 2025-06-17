@@ -2,8 +2,8 @@ from pydantic import BaseModel
 
 
 class ProductModel(BaseModel):
-    ID_PRODUCT: int
+    ID_PRODUCT: str
     NAME: str
     QUANTITY: int
     PRICE: float
-    TAGS: list[str]
+    TAGS: str

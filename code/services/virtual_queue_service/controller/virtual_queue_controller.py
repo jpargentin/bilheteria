@@ -17,7 +17,7 @@ class VirtualQueueController:
         queue = self.repository.get_queue()
         while queue:
             print("Processing queue...")
-            item = VirtualQueueModel(**queue.pop(0))
+            item = queue.pop(0)
             self.process_item()
             
             if item.ID_WEB_SESSION == id_web_session:
@@ -25,7 +25,7 @@ class VirtualQueueController:
             # self.repository.write_queue(queue)
 
     def process_item(self):
-        time.sleep(60)
+        time.sleep(1)
        
         
     def get_queue_position(self, id_web_session: str):
