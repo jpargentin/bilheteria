@@ -1,2 +1,8 @@
 ID_USER,NAME,EMAIL,PASSWORD
 1,teste,teste,teste
+2,New User,new@email.com,newpass
+3,Test Name,test@reg.com,regpass
+4,New User,new@email.com,newpass
+5,Test Name,test@reg.com,regpass
+6,New User,new@email.com,newpass
+7,Test Name,test@reg.com,regpass
