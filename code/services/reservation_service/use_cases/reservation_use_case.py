@@ -19,7 +19,7 @@ class ReservationUseCase():
             choice = self._show_menu()
             if choice == '1':
                 self.list_reserved_seats.append(self.choose_seat(session.ID_SESSION, id_user, id_web_session))
-                if input("\nDeseja comprar mais ingressos? (s/n): ").capitalize() == 'S':
+                if input("\nDeseja comprar mais ingressos? (S/N): ").capitalize() == 'S':
                     continue
                 else:
                     loop = False

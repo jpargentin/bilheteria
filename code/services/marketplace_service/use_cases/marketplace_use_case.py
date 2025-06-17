@@ -14,15 +14,15 @@ class MarketPlaceUseCase():
         
     def marketplace_endpoint(self, ticket_list: list[TicketModel]=[]):
         print("\nBem-vindo ao Marketplace!")
-        print("Seus ingressos ja estão reservados e prontos para serem comprados")
-        print("Mas antes... temos uma seleçao incrivel de produtos que podem acompanhar sua sessão!")
+        print("Seus ingressos já estão reservados e prontos para serem comprados")
+        print("Mas antes... temos uma seleção incrível de produtos que podem acompanhar sua sessão!")
         print("Você pode escolher produtos maravilhosos como pipoca, refrigerante, doces e muito mais!")
         
         if ticket_list:
             for ticket in ticket_list:
                 product_ticket = ProductModel(
                     ID_PRODUCT=ticket.ID_TICKET,
-                    NAME=f"TICKET SESSAO: {ticket.ID_SESSION}",
+                    NAME=f"TICKET SESSÃO: {ticket.ID_SESSION}",
                     QUANTITY=1,
                     PRICE=ticket.PRICE,
                     TAGS=""

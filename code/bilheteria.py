@@ -7,10 +7,11 @@ from services.reservation_service.use_cases.reservation_use_case import Reservat
 from services.marketplace_service.use_cases.marketplace_use_case import MarketPlaceUseCase
 from services.payment_service.use_cases.payment_use_case import PaymentUseCase
 from services.receipt_service.use_cases.receipt_use_case import ReceiptUseCase
-from utils.setup import DataBaseSetup
+from utils.setup import DataBaseSetup, SystemSetup
 
 
 def __main__():
+    SystemSetup()
     DataBaseSetup()
     while True:
         print("\n=========================================")
@@ -25,7 +26,7 @@ def __main__():
         if not selected_session:
             continue
 
-        print("\nVocê sera redirecionado para a fila virtual")
+        print("\nVocê será redirecionado para a fila virtual")
         time.sleep(1)
         VirtualQueueUseCase().virtual_queue_endpoint(user, id_web_session)
 
@@ -34,22 +35,24 @@ def __main__():
         if not reserved_tickets_list:
             continue
 
-        print("\nVocê sera redirecionado para o marketplace")
+        print("\nVocê será redirecionado para o marketplace")
         time.sleep(1)
         shopping_list = MarketPlaceUseCase(user, id_web_session).marketplace_endpoint(reserved_tickets_list)
 
         if not shopping_list:
             for ticket in reserved_tickets_list:
                 ReservationUseCase().cancel_reservation_endpoint(ticket.ID_TICKET)
+                _end_message()
             continue
 
-        print("\nVocê sera redirecionado para o pagamento")
+        print("\nVocê será redirecionado para o pagamento")
         time.sleep(1)
         payment = PaymentUseCase().payment_endpoint()
 
         if not payment:
             for ticket in reserved_tickets_list:
                 ReservationUseCase().cancel_reservation_endpoint(ticket.ID_TICKET)
+                _end_message()
             continue
 
         time.sleep(1)
@@ -63,5 +66,14 @@ def __main__():
         for ticket in reserved_tickets_list:
             print(f" - Ingresso ID: {ticket.ID_TICKET}, Sessão ID: {ticket.ID_SESSION}, Preço: {ticket.PRICE}")
         print("\nObrigado por comprar conosco!")
-    
+        
+        print("\nVolte sempre!")
+        _end_message()
+
+def _end_message():
+    print("\nVolte sempre!")
+    print("\n=========================================")
+    print("           FIM DO PROCESSO")
+    print("=========================================")
+        
 __main__()

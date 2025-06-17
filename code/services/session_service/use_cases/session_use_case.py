@@ -7,7 +7,7 @@ class SessionUseCase():
         self.controller = SessionController()
 
     def session_endpoint(self):
-        print("\n Serviço de sessoes!")
+        print("\n Serviço de sessões!")
         loop = True
         while loop:
             choice = self._show_menu()
@@ -27,21 +27,21 @@ class SessionUseCase():
         session_list = self.show_available_sessions()
         loop = True
         while loop:
-            input_id = input("\nDigite o ID da sessao que deseja escolher: ")
+            input_id = input("\nDigite o ID da sessão que deseja escolher: ")
             selected_session = next((s for s in session_list if s.ID_SESSION == input_id.capitalize()), None)
             if selected_session:
-                print("Sessao escolhida com sucesso!")
+                print("Sessão escolhida com sucesso!")
                 loop = False
             else:
-                print("Sessao não encontrada.")
+                print("Sessão não encontrada.")
         return selected_session
-    
-    def show_available_sessions(self):        
-        print("\nListando sessoes disponíveis...")
+
+    def show_available_sessions(self):
+        print("\nListando sessões disponíveis...")
         session_list = self.controller.list_available_sessions()
         if not session_list:
-            print("Nenhuma sessao disponível no momento.")
-            raise ValueError("Nenhuma sessao disponível no momento.")
+            print("Nenhuma sessão disponível no momento.")
+            raise ValueError("Nenhuma sessão disponível no momento.")
 
         for session_model in session_list:
             print(f"\n ID: {session_model.ID_SESSION}, Local: {session_model.LOCAL}, Filme: {session_model.MOVIE}, Data Hora: {session_model.DATE}")

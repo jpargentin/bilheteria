@@ -1,4 +1,31 @@
+import os
+import sys
+import subprocess
+
 from utils.csv_service import CSVService
+
+
+class SystemSetup:
+    def set_utf8_encoding(self):
+        if os.name == 'nt':
+            os.system('chcp 65001 > NUL')
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+
+    def install_requirements(self):
+        req_file = 'requirements.txt'
+        if os.path.exists(req_file):
+            print('Instalando dependências...')
+            subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', req_file])
+        else:
+            print('Arquivo requirements.txt não encontrado. Pulando instalação de dependências.')
+
+    def __init__(self):
+        self.set_utf8_encoding()
+        self.install_requirements()
+        print('Configuração inicial concluída. Ambiente pronto para rodar o sistema de bilheteria.')
+
+
 
 class DataBaseSetup:
     def __init__(self):

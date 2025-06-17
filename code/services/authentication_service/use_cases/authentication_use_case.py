@@ -10,8 +10,8 @@ class AuthenticationUseCase:
         loop = True
         while loop:
             self._show_menu()
-            choice = input("Escolha uma opcao: ")
-            
+            choice = input("Escolha uma opção: ")
+
             if choice == '1':
                 email = input("Digite seu email: ")
                 password = input("Digite sua senha: ")
@@ -31,10 +31,10 @@ class AuthenticationUseCase:
                 loop = False
             
             else:
-                print("Opcao invalida. Tente novamente.")
+                print("Opção inválida. Tente novamente.")
         return user
     
     def _show_menu(self):
-        print("\nMenu de Autenticacao:")
+        print("\nMenu de Autenticação:")
         print("1. Login")
         print("2. Registrar")
