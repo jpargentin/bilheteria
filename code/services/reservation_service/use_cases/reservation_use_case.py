@@ -21,8 +21,12 @@ class ReservationUseCase():
                 seat = self.choose_seat(session.ID_SESSION, id_user, id_web_session)
                 if seat is not None:
                     self.list_reserved_seats.append(seat)
-                if input("\nDeseja comprar mais ingressos? (S/N): ").capitalize() == 'S':
-                    continue
+                while input("\nDeseja comprar mais ingressos? (S/N): ").capitalize() == 'S':
+                    seat = self.choose_seat(session.ID_SESSION, id_user, id_web_session)
+                    if seat is not None:
+                        self.list_reserved_seats.append(seat)
+                    else:
+                        break
                 else:
                     loop = False
 

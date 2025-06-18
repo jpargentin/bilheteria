@@ -62,7 +62,7 @@ def __main__():
             ReservationUseCase().buy_ticket_endpoint(ticket.ID_TICKET)
         
         _end_message()
-        time.sleep(3)
+        time.sleep(1)
         
 def _end_message():
     print("\nVolte sempre!")
