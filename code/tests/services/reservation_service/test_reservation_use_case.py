@@ -53,7 +53,7 @@ def test_choose_seat_success(use_case):
          patch.object(use_case.controller, "reserve_seat", return_value="seat1") as mock_reserve:
         result = use_case.choose_seat("sess1", "user1", "websess1")
         mock_show.assert_called_once_with("sess1")
-        mock_reserve.assert_called_once_with("Seat1", "user1", "websess1")
+        mock_reserve.assert_called_once_with("sess1","Seat1", "user1", "websess1")
         assert result == "seat1"
 
 def test_choose_seat_retry_on_failure(use_case):

@@ -18,9 +18,15 @@ class ReservationUseCase():
         while loop:
             choice = self._show_menu()
             if choice == '1':
-                self.list_reserved_seats.append(self.choose_seat(session.ID_SESSION, id_user, id_web_session))
-                if input("\nDeseja comprar mais ingressos? (S/N): ").capitalize() == 'S':
-                    continue
+                seat = self.choose_seat(session.ID_SESSION, id_user, id_web_session)
+                if seat is not None:
+                    self.list_reserved_seats.append(seat)
+                while input("\nDeseja comprar mais ingressos? (S/N): ").capitalize() == 'S':
+                    seat = self.choose_seat(session.ID_SESSION, id_user, id_web_session)
+                    if seat is not None:
+                        self.list_reserved_seats.append(seat)
+                    else:
+                        break
                 else:
                     loop = False
 
@@ -36,8 +42,10 @@ class ReservationUseCase():
         self.controller.show_available_seats(id_session)
         loop = True
         while loop:
-            input_id = input("\nDigite o ID do assento que deseja escolher: ")
-            selected_seat = self.controller.reserve_seat(input_id.capitalize(), id_user, id_web_session)
+            input_id = input("\nDigite o ID do assento que deseja escolher ou 'N' para sair: ")
+            if input_id.capitalize() == 'N':
+                return None
+            selected_seat = self.controller.reserve_seat(id_session, input_id.capitalize(), id_user, id_web_session)
             if selected_seat:
                 print("Assento escolhido com sucesso!")
                 loop = False
@@ -48,5 +56,5 @@ class ReservationUseCase():
     def _show_menu(self):
         print("\nMenu de Reserva:")
         print("1. Escolher um assento")
-        print("2. Cancelar e sair")
+        print("2. Desistir da compra e sair")
         return input("Escolha uma opção: ")

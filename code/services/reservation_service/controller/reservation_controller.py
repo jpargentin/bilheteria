@@ -13,13 +13,16 @@ class ReservationController:
     def show_available_seats(self, ID_SESSION: str):
         available_seats = self._list_available_seats(ID_SESSION)
         print("\nAssentos disponiveis: ")
+        if not available_seats:
+            print("Infelizmente nossos ingressos para essa sessão ja esgotaram")
         for seat in available_seats:
             cordinates = seat.TICKET_COORDENATES.replace('[','').replace(']','').split(',')
             tags = seat.tags.replace('[','').replace(']','').split(',')
             print(f"\nID: {seat.ID_TICKET}, Fileira: {cordinates[0]}, Coluna: {cordinates[1]}, Sala: {cordinates[2]}, Descricao: {tags[0]}, Preço: {seat.PRICE}")
 
-    def reserve_seat(self, id_ticket: str, id_user: str, id_web_session: str):
-        tickets = self.repository.get_tickets()
+    def reserve_seat(self, id_session: str, id_ticket: str, id_user: str, id_web_session: str):
+        # tickets = self.repository.get_tickets()
+        tickets = self._list_available_seats(id_session)
         for ticket in tickets:
             if ticket.ID_TICKET == id_ticket:
                 ticket.RESERVATION = True
