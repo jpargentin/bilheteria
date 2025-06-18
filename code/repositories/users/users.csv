@@ -1,2 +1,4 @@
 ID_USER,NAME,EMAIL,PASSWORD
 1,teste,teste,teste
+2,Novo,novo@email.com,nova
+3,Test Name,test@reg.com,regpass
