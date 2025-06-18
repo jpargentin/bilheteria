@@ -34,8 +34,9 @@ class DataBaseSetup:
         products_data = [['P1',"PIPOCA", 1000, 10.0, ['SNACK', 'FOOD']],
                         ['P2',"REFRIGERANTE", 1000, 5.0, ['SNACK', 'DRINK']],
                         ['P3',"CACHORRO_QUENTE", 1000, 15.0, ['SNACK', 'FOOD']],
-                        ['P4',"COMBO 1 (PIPOCA + 2 REFRI)", 1000, 20.0, ['SNACK', 'COMBO_1']],
-                        ['P5',"COMBO 2 (2 PIPOCAS + 2 REFRIS)", 1000, 30.0, ['SNACK', 'COMBO_2']]]
+                        ['P4',"COMBO 1 (PIPOCA + REFRI)", 1000, 15.0, ['SNACK', 'COMBO_1']],
+                        ['P5',"COMBO 2 (PIPOCA + 2 REFRI)", 1000, 20.0, ['SNACK', 'COMBO_1']],
+                        ['P6',"COMBO 3 (2 PIPOCAS + 2 REFRIS)", 1000, 30.0, ['SNACK', 'COMBO_2']]]
         CSVService().write_csv('repositories/products', 'products.csv', products_data, header=products_header)
 
 
