@@ -18,6 +18,11 @@ class MarketPlaceUseCase():
         print("Mas antes... temos uma seleção incrível de produtos que podem acompanhar sua sessão!")
         print("Você pode escolher produtos maravilhosos como pipoca, refrigerante, doces e muito mais!")
         
+        sugested_product = self.product_controller.sugestion(ticket_list)
+        print("\n SUGESTÃO ESPECIAL PARA VOCÊ COM BASE NO SEU INGRESSO: ")
+        print(f"ID: {sugested_product.ID_PRODUCT}, Nome: {sugested_product.NAME}, Preço: R${sugested_product.PRICE:.2f}")
+        
+        
         if ticket_list:
             for ticket in ticket_list:
                 product_ticket = ProductModel(
@@ -33,20 +38,25 @@ class MarketPlaceUseCase():
         while loop:
             choice = self._show_menu()
             if choice == '1':
-                print("\nEscolha um produto:")
-                self.shopping_list_controller.add_item(self.choose_product())
-            
+                print("\nProduto adicionado ao seu carrinho!")
+                self.shopping_list_controller.add_item(sugested_product)
+                
             elif choice == '2':
+                print("\nEscolha um produto:")
+                product = self.choose_product()
+                if product:
+                    self.shopping_list_controller.add_item(product)
+            
+            elif choice == '3':
                 print("\nCarrinho de compras:")
                 self.shopping_list_controller.show_items()
             
-            elif choice == '3':
-                print("Avançando para pagamento...")
+            elif choice == '4':
+                print("\nAvançando para pagamento...")
                 loop = False
             
-            elif choice == '4':
+            elif choice == '5':
                 print("Saindo do serviço de produtos. Voltando ao menu principal...")
-                #TODO: Implementar retorno ao menu principal
                 return None
             else:
                 print("Opção inválida. Tente novamente.")
@@ -55,10 +65,11 @@ class MarketPlaceUseCase():
 
     def choose_product(self):
         self.product_controller.show_products()
-        print("\nEscolha um produto: ")
         loop = True
         while loop:
-            input_id = input("\nDigite o ID do produto que deseja escolher: ")
+            input_id = input("\nDigite o ID do produto que deseja escolher ou 'N' para sair: ")
+            if input_id.capitalize() == "N":
+                return None
             selected_product = self.product_controller.get_product(input_id.capitalize())
             if selected_product:
                 print("Produto escolhido com sucesso!")
@@ -69,8 +80,9 @@ class MarketPlaceUseCase():
         
     def _show_menu(self):
         print("\nMenu de Marketplace:")
-        print("1. Escolher um produto")
-        print("2. Ver carrinho de compras")
-        print("3. Pagamento")
-        print("4. Cancelar e sair")
+        print("1. Quero o produto sugerido")
+        print("2. Escolher um produto")
+        print("3. Ver carrinho de compras")
+        print("4. Pagamento")
+        print("5. Cancelar e sair")
         return input("Escolha uma opção: ")
