@@ -1,68 +1,54 @@
-import pytest
-from unittest.mock import patch, MagicMock
-from services.authentication_service.use_cases.authentication_use_case import AuthenticationUseCase
+import unittest
+from unittest.mock import MagicMock, patch
+from services.authentication_service.controller.authentication_controller import AuthenticationController
 from services.authentication_service.model.user_model import UserModel
 
-@pytest.fixture
-def use_case():
-    return AuthenticationUseCase()
+class TestAuthenticationController(unittest.TestCase):
+    def setUp(self):
+        patcher = patch('services.authentication_service.controller.authentication_controller.AuthenticationRepository')
+        self.MockRepo = patcher.start()
+        self.addCleanup(patcher.stop)
+        self.mock_repo_instance = self.MockRepo.return_value
+        self.controller = AuthenticationController()
 
-def make_user(id):
-    return UserModel(ID_USER=str(id), NAME="Test", EMAIL="test@email.com", PASSWORD="password")
+    def test_login_success(self):
+        mock_user = MagicMock()
+        mock_user.check_password.return_value = True
+        self.mock_repo_instance.find_by_email.return_value = mock_user
 
-@patch("services.authentication_service.use_cases.authentication_use_case.input")
-@patch("services.authentication_service.use_cases.authentication_use_case.AuthenticationController")
-def test_authentication_endpoint_login_success(mock_controller_cls, mock_input, use_case):
-    mock_controller = mock_controller_cls.return_value
-    user = make_user(42)
-    mock_controller.login.return_value = user
-    mock_input.side_effect = ['1', 'test@email.com', 'password']
-    with patch("builtins.print"):
-        result = use_case.authentication_endpoint()
-    assert isinstance(result, UserModel)
-    assert result.ID_USER == user.ID_USER
+        result = self.controller.login('test@example.com', 'password')
+        self.mock_repo_instance.find_by_email.assert_called_once_with('test@example.com')
+        mock_user.check_password.assert_called_once_with('password')
+        self.assertEqual(result, mock_user)
 
-@patch("services.authentication_service.use_cases.authentication_use_case.input")
-@patch("services.authentication_service.use_cases.authentication_use_case.AuthenticationController")
-def test_authentication_endpoint_login_fail_then_register_success(mock_controller_cls, mock_input, use_case):
-    mock_controller = mock_controller_cls.return_value
-    mock_controller.login.return_value = None
-    user = make_user(99)
-    mock_controller.register.return_value = user
-    # login fail, then register
-    mock_input.side_effect = [
-        '1', 'fail@email.com', 'wrongpass',  # login fail
-        '2', 'New User', 'new@email.com', 'newpass'
-    ]
-    with patch("builtins.print"):
-        result = use_case.authentication_endpoint()
-    assert isinstance(result, UserModel)
-    assert result.ID_USER == user.ID_USER
+    def test_login_failure_wrong_password(self):
+        mock_user = MagicMock()
+        mock_user.check_password.return_value = False
+        self.mock_repo_instance.find_by_email.return_value = mock_user
 
-@patch("services.authentication_service.use_cases.authentication_use_case.input")
-@patch("services.authentication_service.use_cases.authentication_use_case.AuthenticationController")
-def test_authentication_endpoint_invalid_option_then_login_success(mock_controller_cls, mock_input, use_case):
-    mock_controller = mock_controller_cls.return_value
-    user = make_user(7)
-    mock_controller.login.return_value = user
-    # invalid option, then login
-    mock_input.side_effect = [
-        'x',  # invalid
-        '1', 'user@email.com', 'pass'
-    ]
-    with patch("builtins.print"):
-        result = use_case.authentication_endpoint()
-    assert isinstance(result, UserModel)
-    assert result.ID_USER == user.ID_USER
+        result = self.controller.login('test@example.com', 'wrongpassword')
+        self.assertIsNone(result)
 
-@patch("services.authentication_service.use_cases.authentication_use_case.input")
-@patch("services.authentication_service.use_cases.authentication_use_case.AuthenticationController")
-def test_authentication_endpoint_register_success(mock_controller_cls, mock_input, use_case):
-    mock_controller = mock_controller_cls.return_value
-    user = make_user(55)
-    mock_controller.register.return_value = user
-    mock_input.side_effect = ['2', 'Test Name', 'test@reg.com', 'regpass']
-    with patch("builtins.print"):
-        result = use_case.authentication_endpoint()
-    assert isinstance(result, UserModel)
-    assert result.ID_USER == user.ID_USER
+    def test_login_failure_no_user(self):
+        self.mock_repo_instance.find_by_email.return_value = None
+        result = self.controller.login('notfound@example.com', 'password')
+        self.assertIsNone(result)
+
+    def test_register_creates_user(self):
+        self.mock_repo_instance._get_users.return_value = []
+        self.mock_repo_instance.create_user.return_value = 'user_created'
+        with patch('services.authentication_service.controller.authentication_controller.UserModel') as MockUserModel:
+            mock_user_instance = MockUserModel.return_value
+            result = self.controller.register('Test User', 'test@example.com', 'password123')
+            MockUserModel.assert_called_once_with(ID_USER='1', NAME='Test User', EMAIL='test@example.com', PASSWORD='password123')
+            self.mock_repo_instance.create_user.assert_called_once_with(mock_user_instance)
+            self.assertEqual(result, 'user_created')
+
+    def test_get_user_info(self):
+        self.mock_repo_instance.get_user_info.return_value = {'ID_USER': '1', 'NAME': 'Test User'}
+        result = self.controller.get_user_info('1')
+        self.mock_repo_instance.get_user_info.assert_called_once_with('1')
+        self.assertEqual(result, {'ID_USER': '1', 'NAME': 'Test User'})
+
+if __name__ == '__main__':
+    unittest.main()
