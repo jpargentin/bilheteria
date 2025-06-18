@@ -47,7 +47,7 @@ O sistema foi baseado em uma arquitetura de microsserviços AWS demonstrada de m
 A arquitetura completa com do sistema com decisões tecnicas está documentada no arquivo Bilheteria.drawio, localizado na raiz do projeto.  
 Esse arquivo pode ser aberto com o draw.io (https://app.diagrams.net/) ou com extensões compatíveis no VS Code.
 
-([arquitura online](https://app.diagrams.net/#Hjpargentin%2Fbilheteria%2Fmain%2FDiagrama%20sem%20nome.drawio#%7B%22pageId%22%3A%22yK-fyhg9txjnkvZaFi05%22%7D))
+([arquitura online](https://drive.google.com/file/d/1bf0bW3I_wGfjEkM1CzY8Zi1apX_R9hcF/view?usp=drive_link))
 
 
 ---
