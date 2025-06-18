@@ -26,6 +26,7 @@ class ReservationUseCase():
                     if seat is not None:
                         self.list_reserved_seats.append(seat)
                     else:
+                        loop = False
                         break
                 else:
                     loop = False
