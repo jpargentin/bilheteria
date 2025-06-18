@@ -52,5 +52,5 @@ class ReservationUseCase():
     def _show_menu(self):
         print("\nMenu de Reserva:")
         print("1. Escolher um assento")
-        print("2. Cancelar e sair")
+        print("2. Desistir da compra e sair")
         return input("Escolha uma opção: ")

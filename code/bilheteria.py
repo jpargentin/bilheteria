@@ -56,16 +56,10 @@ def __main__():
             continue
 
         time.sleep(1)
-        ReceiptUseCase().receipt_endpoint()
+        ReceiptUseCase().receipt_endpoint(shopping_list)
         
         for ticket in reserved_tickets_list:
             ReservationUseCase().buy_ticket_endpoint(ticket.ID_TICKET)
-            
-        print("\nCompra realizada com sucesso!")
-        print("\nResumo da compra:")
-        for ticket in reserved_tickets_list:
-            print(f" - Ingresso ID: {ticket.ID_TICKET}, Sessão ID: {ticket.ID_SESSION}, Preço: {ticket.PRICE}")
-        print("\nObrigado por comprar conosco!")
         
         _end_message()
         time.sleep(3)

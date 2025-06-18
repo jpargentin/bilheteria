@@ -13,6 +13,8 @@ class ReservationController:
     def show_available_seats(self, ID_SESSION: str):
         available_seats = self._list_available_seats(ID_SESSION)
         print("\nAssentos disponiveis: ")
+        if not available_seats:
+            print("Infelizmente nossos ingressos para essa sessão ja esgotaram")
         for seat in available_seats:
             cordinates = seat.TICKET_COORDENATES.replace('[','').replace(']','').split(',')
             tags = seat.tags.replace('[','').replace(']','').split(',')
