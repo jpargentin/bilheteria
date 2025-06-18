@@ -14,7 +14,7 @@ def __main__():
     SystemSetup()
     DataBaseSetup()
     while True:
-        print("\n=========================================")
+        print("\n\n\n=========================================")
         print("           BILHETERIA ONLINE")
         print("=========================================")
         print("\nBem-vindo ao sistema de bilheteira!")
@@ -67,9 +67,9 @@ def __main__():
             print(f" - Ingresso ID: {ticket.ID_TICKET}, Sessão ID: {ticket.ID_SESSION}, Preço: {ticket.PRICE}")
         print("\nObrigado por comprar conosco!")
         
-        print("\nVolte sempre!")
         _end_message()
-
+        time.sleep(3)
+        
 def _end_message():
     print("\nVolte sempre!")
     print("\n=========================================")

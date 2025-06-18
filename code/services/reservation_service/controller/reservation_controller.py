@@ -18,8 +18,9 @@ class ReservationController:
             tags = seat.tags.replace('[','').replace(']','').split(',')
             print(f"\nID: {seat.ID_TICKET}, Fileira: {cordinates[0]}, Coluna: {cordinates[1]}, Sala: {cordinates[2]}, Descricao: {tags[0]}, Preço: {seat.PRICE}")
 
-    def reserve_seat(self, id_ticket: str, id_user: str, id_web_session: str):
-        tickets = self.repository.get_tickets()
+    def reserve_seat(self, id_session: str, id_ticket: str, id_user: str, id_web_session: str):
+        # tickets = self.repository.get_tickets()
+        tickets = self._list_available_seats(id_session)
         for ticket in tickets:
             if ticket.ID_TICKET == id_ticket:
                 ticket.RESERVATION = True
