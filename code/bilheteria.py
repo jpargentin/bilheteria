@@ -64,6 +64,7 @@ def __main__():
         _end_message()
         time.sleep(1)
         
+        
 def _end_message():
     print("\nVolte sempre!")
     print("\n=========================================")
